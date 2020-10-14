@@ -1,38 +1,32 @@
 #include "oled.h"
-#include "font6x8.h"
 
-static void AsciiStr_to_fontStr(char *str, t_display *display) {
-    int font_str_intdex = ((SCREEN_WIDTH - strlen(str) * 6) / 2) + SCREEN_WIDTH * 3;
-    int index_of_simbol = 0;
-
-    for (int i = 0; i < strlen(str); i++) {
-        index_of_simbol = (str[i] - 32) * 6;                    //first simbol from font6x8.h is the 32th of ascii table
-        for (int j = 0; j < 6; j++) {                                               // every simbol in ascii is 6 byte
-            display->font_str[font_str_intdex] = font6x8[index_of_simbol++];
-            font_str_intdex++;
-        }
-    }
-}
-
-void str_to_oled(t_display *display) {
+void buffer_to_oled(t_display *display) {
     i2c_cmd_handle_t cmd = i2c_cmd_link_create();
     i2c_master_start(cmd);
     i2c_master_write_byte(cmd, (display->addr << 1) | I2C_MASTER_WRITE, true);
     i2c_master_write_byte(cmd, 0x80, true); // single command
     i2c_master_write_byte(cmd, 0x00, true);
     i2c_master_write_byte(cmd, 0x40, true); // data stream
-    i2c_master_write(cmd, display->font_str, SCREEN_SIZE, true);
+    i2c_master_write(cmd, display->buffer, SCREEN_SIZE, true);
     i2c_master_stop(cmd);
     i2c_master_cmd_begin(display->port, cmd, 10 / portTICK_PERIOD_MS);
     i2c_cmd_link_delete(cmd);
 }
 
-void oled_update(t_display *display) {
-    str_to_oled(display);
+void display_clear(t_display *display) {
+    for (uint8_t i = 0; i < 8; i++) {
+        for (uint8_t j = 0; j < 128; j++) {
+            display->buffer[i][j] = 0x00;
+        }
+    }
 }
 
-void oled_clear(t_display *display) {
-    memset(display->font_str, 1, SCREEN_SIZE);
+void display_fill(t_display *display) {
+    for (uint8_t i = 0; i < 8; i++) {
+        for (uint8_t j = 0; j < 128; j++) {
+            display->buffer[i][j] = 0xff;
+        }
+    }
 }
 
 void init_i2c(void) {
@@ -47,6 +41,7 @@ void init_i2c(void) {
     i2c_param_config(I2C_PORT, &i2c_config);
     i2c_driver_install(I2C_PORT, I2C_MODE_MASTER, 0, 0, 0);
 }
+
 
 void oled_initialization(t_display *display) {
     i2c_cmd_handle_t cmd = i2c_cmd_link_create();
@@ -70,13 +65,24 @@ void oled_initialization(t_display *display) {
     i2c_master_write_byte(cmd, 0x40, true);
     i2c_master_write_byte(cmd, 0xA1, true); // segment remap
     i2c_master_write_byte(cmd, 0xA6, true);
-    i2c_master_write_byte(cmd, 0x81, true); // contrast
-    i2c_master_write_byte(cmd, 0xFF, true);
+//    i2c_master_write_byte(cmd, 0x81, true); // contrast
+//    i2c_master_write_byte(cmd, 0xFF, true);
     i2c_master_write_byte(cmd, 0xAF, true); // on
     i2c_master_stop(cmd);
     i2c_master_cmd_begin(display->port, cmd, 10 / portTICK_PERIOD_MS);
     i2c_cmd_link_delete(cmd);
 }
+
+void oled_config(t_display *display) {
+    ESP_ERROR_CHECK(gpio_set_direction(GPIO_NUM_32, GPIO_MODE_OUTPUT));
+    ESP_ERROR_CHECK(gpio_set_level(GPIO_NUM_32, 1));
+    vTaskDelay(1000 / portTICK_PERIOD_MS);
+    init_i2c();
+    display->addr = I2C_ADDR;
+    display->port = I2C_PORT;
+}
+
+
 
 
 

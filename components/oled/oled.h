@@ -20,14 +20,14 @@
 typedef struct s_display {
     uint8_t addr;           // I2C address
     i2c_port_t port;        // I2C interface port
-    uint16_t changes;       // page change bit to optimize writes
-    uint8_t *font_str; // page buffer
+    uint8_t buffer[8][128]; // page buffer
 } t_display;
 
-void str_to_oled(t_display *display);
-void oled_update(t_display *display);
-void oled_clear(t_display *display);
 void oled_initialization(t_display *display);
+void oled_config(t_display *display);
 void init_i2c(void);
-//void data_to_oled(void *arg);
+void display_fill(t_display *display);
+void display_clear(t_display *display);
+void buffer_to_oled(t_display *display);
+void AsciiStr_to_fontStr(char *str, t_display *display);
 #endif
