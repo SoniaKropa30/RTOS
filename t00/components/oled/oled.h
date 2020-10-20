@@ -10,12 +10,12 @@
 #define PAGE_COUNT 8
 #define SCREEN_SIZE 1024 // width * number of pages
 
-
 #include "driver/gpio.h"
 #include "driver/i2c.h"
 #include "driver/i2c.h"
 #include <strings.h>
 #include <string.h>
+
 
 typedef struct s_display {
     uint8_t addr;           // I2C address
