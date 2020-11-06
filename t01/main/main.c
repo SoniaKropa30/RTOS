@@ -1,9 +1,9 @@
 #include "console.h"
 
 QueueHandle_t uart_queue;
-#define SIZE_SCREEN_BUF  50
+#define SIZE_STR_FOR_EXECUTE  50
 #define ENTER 13
-
+#define MAX_SIZE_BUF 119
 void uart_config(void) {
     uart_config_t uart_config =
             {
@@ -20,58 +20,59 @@ void uart_config(void) {
     uart_pattern_queue_reset(UART_NUM_1, 20);
 }
 
+
 void app_main() {
     uart_config();
     uart_event_t event;
     uint8_t *buf = (uint8_t *)malloc(BUF_SIZE);
-    char str_for_screen[SIZE_SCREEN_BUF];
-    memset(str_for_screen, 0, SIZE_SCREEN_BUF);
+    char str_for_execute[SIZE_STR_FOR_EXECUTE];
+    memset(str_for_execute, 0, SIZE_STR_FOR_EXECUTE);
     t_list *history = NULL;
-    int index_str_from_history = 0;
 
     while (1) {
-        if(xQueueReceive(uart_queue, (void * )&event, (portTickType)portMAX_DELAY)) {
+        if (xQueueReceive(uart_queue, (void *) &event, (portTickType) portMAX_DELAY)) {
             bzero(buf, BUF_SIZE);
-//            printf("done\n\n");
             int len = uart_read_bytes(UART_NUM_1, buf, event.size, portMAX_DELAY);
-
             printf("len = %d\n", len);
-            printf("num of char = %d\n", buf[0]);
-    //        if(len )
-            strcat(str_for_screen, (char*)buf);
-            if(buf[0] == ENTER) {
-                mx_push_front(&history, strdup(str_for_screen));
-                //todo send to execute
-                uart_write_bytes(UART_NUM_1, "\n", 1);
+            for (int k = 0; k < len; k++)
+                printf("%d ", buf[k]);
+            printf("\n");
+            strcat(str_for_execute, (char *) buf);
+            if (len && len < MAX_SIZE_BUF) {
+                uart_write_bytes(UART_NUM_1, (char *)buf, strlen((char*)buf));
+                //          printf("%s\n", str_for_screen);
+
+                if (buf[0] == ENTER) {
+                    mx_push_front(&history, strdup(str_for_execute));
+                    printf("%s\n", (char *) history->data);
+                    uart_write_bytes(UART_NUM_1, "\n", 2);
+                    memset(str_for_execute, 0, SIZE_STR_FOR_EXECUTE);
+                }
             }
-            //todo!!!!!!!!!!!!
-//            if(buf[0] == 27) {
-//                printf("in history\n");
-//                printf("data = %s\n", (char*)history->data);
-//
-//                t_list *ptr = history;
-//                int i = 0;
-//                while(ptr != NULL){
-//                    if(i == index_str_from_history) {
-//                        uart_write_bytes(UART_NUM_1, (char *) ptr->data, SIZE_SCREEN_BUF);
-//                        break;
-//                    }
-//                    else
-//                        ptr = ptr->next;
-//                }
-//                index_str_from_history++;
-//
-//            }
-            //todo!!!!!!!!!!!!
-
-
-                if (len) {
-                uart_write_bytes(UART_NUM_1, (char*)buf, SIZE_SCREEN_BUF);
-    //          printf("%s\n", str_for_screen);
+            else {
+                uart_write_bytes(UART_NUM_1, (char *)buf, 120);
             }
-            vTaskDelay(10 / portTICK_PERIOD_MS);
-
+            uart_flush(UART_NUM_1);
         }
+
+        vTaskDelay(10 / portTICK_PERIOD_MS);
     }
 }
 
+
+
+//            if(buf[0] == 27 && buf[2] == 65) {
+//                printf("in history\n");
+//                printf("%s\n", (char*)history->data);
+//
+////                t_list *ptr = history;
+////                int i = 0;
+////                while(ptr != NULL){
+////                    if(i == index_str_from_history) {
+//                uart_write_bytes(UART_NUM_1, (char *)history->data, SIZE_SCREEN_BUF);
+////                        break;
+////                    }
+////                    else
+////                        ptr = ptr->next;
+//            }
+////                index_str_from_history++;
