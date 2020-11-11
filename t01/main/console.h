@@ -9,6 +9,7 @@
 #include "freertos/queue.h"
 #include "driver/uart.h"
 #include "libmx.h"
+#include <stdbool.h>
 
 #define UART_TX_PIN 17
 #define UART_RX_PIN 16
