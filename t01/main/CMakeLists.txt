@@ -5,5 +5,9 @@ idf_component_register(SRCS "main.c"SRCS
                         SRCS "mx_create_node.c"
                         SRCS "mx_push_back.c"
                         SRCS "mx_push_front.c"
+                        SRCS "leds_module.c"
+                        SRCS "mx_strsplit.c"
+                        SRCS "mx_arr_size.c"
+
                         INCLUDE_DIRS "."
                         )
