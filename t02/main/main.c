@@ -4,7 +4,7 @@ void app_main() {
     t_app *app = malloc(sizeof(t_app));
     if(!app) return;
     init_console_data(app);
-    t_list *stack = NULL;
+    timer_initialise();
 
 
     xTaskCreate(&data_from_uart, "data_from_uart", 4096,
@@ -12,6 +12,5 @@ void app_main() {
     xTaskCreate(&data_from_dht11, "data_from_dht11", 4096,
                 NULL, 5, NULL);
     xTaskCreate(&push_to_stack, "push_to_stack", 4096,
-                stack, 5, NULL);
-
+                app, 5, NULL);
 }

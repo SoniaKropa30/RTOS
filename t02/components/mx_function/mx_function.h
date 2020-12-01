@@ -9,13 +9,14 @@
 typedef struct s_dht11 {
     int temp;
     int hum;
-    int time;
+    uint64_t time;
 } t_dht11;
 
 typedef struct s_list {
     t_dht11     data;
     struct      s_list *next;
 }               t_list;
+
 //typedef struct s_list {
 //    void        *data;
 //    struct      s_list *next;

@@ -3,6 +3,7 @@
 QueueHandle_t uart_queue;
 
 void init_console_data(t_app *app) {
+    app->stack = NULL;
     app->buf = malloc(BUF_SIZE);
     app->str_for_execute = malloc(SIZE_STR_FOR_EXECUTE);
     memset(app->str_for_execute, 0, SIZE_STR_FOR_EXECUTE);
@@ -27,14 +28,16 @@ void uart_config(void) {
 }
 
 
-int send_for_execute(char *str_for_execute) {
+int send_for_execute(t_app *app) {
     int exit_status = -1;
-    char **argv = mx_strsplit(str_for_execute, ' ' );
+    char **argv = mx_strsplit(app->str_for_execute, ' ' );
     int argc = mx_arr_size(argv);
 
     if (argc) {
         if (!strcmp("log", argv[0]) && !argv[1]) {
-           printf("it is ok\n");
+//            printf("in hendler %d\n", app->stack->data.temp);
+//            printf("it is ok\n");
+            print_tem_hum_time(app);
         }
         else if(!strcmp("clear", argv[0]) && !argv[1]) {
             uart_write_bytes(UART_NUM_1, "\e[2J",sizeof("\e[2J"));
@@ -56,7 +59,7 @@ int send_for_execute(char *str_for_execute) {
 
 void handling_ENTER(t_app *app, t_list *history) {
     uart_write_bytes( UART_NUM_1, "\n\r", sizeof( "\n" ));
-    send_for_execute(app->str_for_execute);
+    send_for_execute(app);
 //    if (send_for_execute(app->str_for_execute ) == EXIT_SUCCESS) {
 //        mx_push_back(&history, strdup(app->str_for_execute));
 //        t_list *ptr = history;
@@ -85,7 +88,7 @@ void handling_DELETE(t_app *app) {
         app->str_for_execute[strlen(app->str_for_execute) - 1] = '\0';
         (app->iterator > 0) ? app->iterator-- : 0;
     }
-    printf("str for execute =*%s*\n", app->str_for_execute);
+//    printf("str for execute =*%s*\n", app->str_for_execute);
 
 }
 
@@ -106,8 +109,8 @@ _Bool is_buffer_enought(t_app *app) {
     if (strlen((char *) app->buf ) + strlen( app->str_for_execute ) < SIZE_STR_FOR_EXECUTE) {
         if (printable_char((char *) app->buf )) {
             strcat( app->str_for_execute, (char *) app->buf );
-            printf( "strlen  = %d\n", strlen( app->str_for_execute ));
-            printf( "str for execute =*%s*\n", app->str_for_execute );
+//            printf( "strlen  = %d\n", strlen( app->str_for_execute ));
+//            printf( "str for execute =*%s*\n", app->str_for_execute );
         }
         return 1;
 
@@ -134,7 +137,7 @@ void handling_ARROWS(t_app *app, t_list *history) {
                 app->iterator--;
                 uart_write_bytes( UART_NUM_1, "\b", 1 );
             }
-            printf("after incremantation = %d\n", app->iterator);
+//            printf("after incremantation = %d\n", app->iterator);
         }
 //        if(app->buf[2] == 65) {
 //            printf("in tens\n\n");
@@ -163,12 +166,12 @@ void handling_ARROWS(t_app *app, t_list *history) {
     }
 }
 
-void simple_command_handler(t_app *app, t_list *history) {
+void simple_simbols_handler(t_app *app, t_list *history) {
     if (app->len == 1) {
         if (app->buf[0] == DELETE)
             handling_DELETE(app);
         else if (app->buf[0] == ENTER) {
-            handling_ENTER( app, history);
+            handling_ENTER(app, history);
         } else if (printable_char((char *) app->buf)) {
             app->iterator = app->iterator + 1;
             uart_write_bytes(UART_NUM_1, (char *) app->buf, sizeof(app->buf));
@@ -195,7 +198,7 @@ void data_from_uart(void *data) {
                 memset(app->buf,0, BUF_SIZE);
                 app->len = uart_read_bytes(UART_NUM_1, app->buf, event.size, portMAX_DELAY);
                 if (is_buffer_enought(app))
-                    simple_command_handler(app, history);
+                    simple_simbols_handler(app, history);
             }
             uart_flush_input( UART_NUM_1 );
         }
