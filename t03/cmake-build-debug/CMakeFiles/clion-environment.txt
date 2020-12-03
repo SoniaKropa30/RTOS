@@ -1,0 +1,3 @@
+ToolSet: 1.0 (local)Options: 
+
+Options:-DPYTHON=/Users/admin/.espressif/python_env/idf4.3_py2.7_env/bin/python
