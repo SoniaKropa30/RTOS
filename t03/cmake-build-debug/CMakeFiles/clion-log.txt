@@ -19,7 +19,7 @@ perl: warning: Please check that your locale settings:
 	LANG = ""
     are supported and installed on your system.
 perl: warning: Falling back to the standard locale ("C").
--- App "timer" version: 8a5cc32-dirty
+-- App "timer" version: 2be6c60-dirty
 -- Adding linker script /Users/admin/esp/esp-idf/components/esp_rom/esp32/ld/esp32.rom.newlib-time.ld
 -- Adding linker script /Users/admin/esp/esp-idf/components/esp_rom/esp32/ld/esp32.rom.api.ld
 -- Adding linker script /Users/admin/esp/esp-idf/components/esp_rom/esp32/ld/esp32.rom.ld

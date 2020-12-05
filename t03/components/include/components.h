@@ -50,9 +50,9 @@ typedef struct s_app {
     int len;
     int history_iterator;
     t_list *stack;
-    char time[6];
+    char time[9];
+    xTaskHandle clock;
 } t_app;
-
 
 
 void timer_initialise ();

@@ -1,6 +1,6 @@
 #include "dht11.h"
 
-QueueHandle_t dht11_queue = NULL;
+static QueueHandle_t dht11_queue = NULL;
 
 void push_to_stack(void *data) {
     t_dht11 dht11_recive;
@@ -9,11 +9,11 @@ void push_to_stack(void *data) {
     while(1) {
         if (dht11_queue && (xQueueReceive(dht11_queue, (void *) &dht11_recive,
                                           (portTickType) portMAX_DELAY))) {
-            printf("list_size  =  %d\n", mx_list_size(app->stack));
             if (mx_list_size(app->stack) >= 60)
                 mx_pop_back(&app->stack);
             mx_push_front(&app->stack, dht11_recive);
-
+            memset(app->temp_hum, 0, sizeof(app->temp_hum));
+            sprintf(app->temp_hum, "%dC %dH", dht11_recive.temp, dht11_recive.hum);
         }
         vTaskDelay(10/portTICK_PERIOD_MS);
     }
@@ -28,7 +28,7 @@ void print_tem_hum_time(t_app *app) {
 
     while (ptr) {
         memset(&str, 0, sizeof(str));
-        timer_get_counter_value(TIMER_GROUP_0, TIMER_0, &cur_time);
+        ESP_ERROR_CHECK(timer_get_counter_value(TIMER_GROUP_0, TIMER_0, &cur_time));
         sec = (int)((cur_time - ptr->data.time) / TIMER_SCALE);
         min = (int)sec / 60;
         sec = (int)sec % 60;
@@ -58,7 +58,7 @@ void data_from_dht11(void *data) {
         sensor_activation();
         dht11 = (t_dht11){0, 0, 0};
         if (!take_data_from_dht11(&dht11.temp, &dht11.hum)) {
-            timer_get_counter_value(TIMER_GROUP_0, TIMER_0, &dht11.time);
+            ESP_ERROR_CHECK(timer_get_counter_value(TIMER_GROUP_0, TIMER_0, &dht11.time));
             xQueueSend(dht11_queue, (void*)&dht11, (TickType_t) 0);
             vTaskDelay(5000/portTICK_PERIOD_MS);
         }

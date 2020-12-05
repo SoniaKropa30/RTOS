@@ -55,8 +55,8 @@ set(CMAKE_C_TARGET_INCLUDE_PATH
   "/Users/admin/esp/esp-idf/components/tcpip_adapter/include"
   "/Users/admin/esp/esp-idf/components/app_trace/include"
   "../components/mx_function"
-  "../components/timer"
   "../components/include"
+  "../components/timer"
   "../components/oled"
   )
 

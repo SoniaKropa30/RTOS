@@ -6,16 +6,7 @@
 #include <stdbool.h>
 #include <stdlib.h>
 #include <unistd.h>
-typedef struct s_dht11 {
-    int temp;
-    int hum;
-    uint64_t time;
-} t_dht11;
-
-typedef struct s_list {
-    t_dht11     data;
-    struct      s_list *next;
-}               t_list;
+#include "components.h"
 
 //typedef struct s_list {
 //    void        *data;

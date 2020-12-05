@@ -10339,6 +10339,7 @@
 					<Add directory="/Users/admin/esp/esp-idf/components/esp_eth/include"/>
 					<Add directory="/Users/admin/esp/esp-idf/components/tcpip_adapter/include"/>
 					<Add directory="/Users/admin/esp/esp-idf/components/app_trace/include"/>
+					<Add directory="/Users/admin/Desktop/RTOS/t03/components/include"/>
 					<Add directory="/Users/admin/.espressif/tools/xtensa-esp32-elf/esp-2020r3-8.4.0/xtensa-esp32-elf/bin/../lib/gcc/xtensa-esp32-elf/8.4.0/../../../../xtensa-esp32-elf/include/c++/8.4.0"/>
 					<Add directory="/Users/admin/.espressif/tools/xtensa-esp32-elf/esp-2020r3-8.4.0/xtensa-esp32-elf/bin/../lib/gcc/xtensa-esp32-elf/8.4.0/../../../../xtensa-esp32-elf/include/c++/8.4.0/xtensa-esp32-elf"/>
 					<Add directory="/Users/admin/.espressif/tools/xtensa-esp32-elf/esp-2020r3-8.4.0/xtensa-esp32-elf/bin/../lib/gcc/xtensa-esp32-elf/8.4.0/../../../../xtensa-esp32-elf/include/c++/8.4.0/backward"/>
@@ -10404,6 +10405,7 @@
 					<Add directory="/Users/admin/esp/esp-idf/components/esp_eth/include"/>
 					<Add directory="/Users/admin/esp/esp-idf/components/tcpip_adapter/include"/>
 					<Add directory="/Users/admin/esp/esp-idf/components/app_trace/include"/>
+					<Add directory="/Users/admin/Desktop/RTOS/t03/components/include"/>
 					<Add directory="/Users/admin/.espressif/tools/xtensa-esp32-elf/esp-2020r3-8.4.0/xtensa-esp32-elf/bin/../lib/gcc/xtensa-esp32-elf/8.4.0/../../../../xtensa-esp32-elf/include/c++/8.4.0"/>
 					<Add directory="/Users/admin/.espressif/tools/xtensa-esp32-elf/esp-2020r3-8.4.0/xtensa-esp32-elf/bin/../lib/gcc/xtensa-esp32-elf/8.4.0/../../../../xtensa-esp32-elf/include/c++/8.4.0/xtensa-esp32-elf"/>
 					<Add directory="/Users/admin/.espressif/tools/xtensa-esp32-elf/esp-2020r3-8.4.0/xtensa-esp32-elf/bin/../lib/gcc/xtensa-esp32-elf/8.4.0/../../../../xtensa-esp32-elf/include/c++/8.4.0/backward"/>
@@ -10469,6 +10471,7 @@
 					<Add directory="/Users/admin/esp/esp-idf/components/esp_eth/include"/>
 					<Add directory="/Users/admin/esp/esp-idf/components/tcpip_adapter/include"/>
 					<Add directory="/Users/admin/esp/esp-idf/components/app_trace/include"/>
+					<Add directory="/Users/admin/Desktop/RTOS/t03/components/include"/>
 					<Add directory="/Users/admin/.espressif/tools/xtensa-esp32-elf/esp-2020r3-8.4.0/xtensa-esp32-elf/bin/../lib/gcc/xtensa-esp32-elf/8.4.0/../../../../xtensa-esp32-elf/include/c++/8.4.0"/>
 					<Add directory="/Users/admin/.espressif/tools/xtensa-esp32-elf/esp-2020r3-8.4.0/xtensa-esp32-elf/bin/../lib/gcc/xtensa-esp32-elf/8.4.0/../../../../xtensa-esp32-elf/include/c++/8.4.0/xtensa-esp32-elf"/>
 					<Add directory="/Users/admin/.espressif/tools/xtensa-esp32-elf/esp-2020r3-8.4.0/xtensa-esp32-elf/bin/../lib/gcc/xtensa-esp32-elf/8.4.0/../../../../xtensa-esp32-elf/include/c++/8.4.0/backward"/>
@@ -10534,6 +10537,7 @@
 					<Add directory="/Users/admin/esp/esp-idf/components/esp_eth/include"/>
 					<Add directory="/Users/admin/esp/esp-idf/components/tcpip_adapter/include"/>
 					<Add directory="/Users/admin/esp/esp-idf/components/app_trace/include"/>
+					<Add directory="/Users/admin/Desktop/RTOS/t03/components/include"/>
 					<Add directory="/Users/admin/.espressif/tools/xtensa-esp32-elf/esp-2020r3-8.4.0/xtensa-esp32-elf/bin/../lib/gcc/xtensa-esp32-elf/8.4.0/../../../../xtensa-esp32-elf/include/c++/8.4.0"/>
 					<Add directory="/Users/admin/.espressif/tools/xtensa-esp32-elf/esp-2020r3-8.4.0/xtensa-esp32-elf/bin/../lib/gcc/xtensa-esp32-elf/8.4.0/../../../../xtensa-esp32-elf/include/c++/8.4.0/xtensa-esp32-elf"/>
 					<Add directory="/Users/admin/.espressif/tools/xtensa-esp32-elf/esp-2020r3-8.4.0/xtensa-esp32-elf/bin/../lib/gcc/xtensa-esp32-elf/8.4.0/../../../../xtensa-esp32-elf/include/c++/8.4.0/backward"/>
@@ -10736,8 +10740,8 @@
 					<Add directory="/Users/admin/esp/esp-idf/components/tcpip_adapter/include"/>
 					<Add directory="/Users/admin/esp/esp-idf/components/app_trace/include"/>
 					<Add directory="/Users/admin/Desktop/RTOS/t03/components/mx_function"/>
-					<Add directory="/Users/admin/Desktop/RTOS/t03/components/timer"/>
 					<Add directory="/Users/admin/Desktop/RTOS/t03/components/include"/>
+					<Add directory="/Users/admin/Desktop/RTOS/t03/components/timer"/>
 					<Add directory="/Users/admin/Desktop/RTOS/t03/components/oled"/>
 					<Add directory="/Users/admin/.espressif/tools/xtensa-esp32-elf/esp-2020r3-8.4.0/xtensa-esp32-elf/bin/../lib/gcc/xtensa-esp32-elf/8.4.0/../../../../xtensa-esp32-elf/include/c++/8.4.0"/>
 					<Add directory="/Users/admin/.espressif/tools/xtensa-esp32-elf/esp-2020r3-8.4.0/xtensa-esp32-elf/bin/../lib/gcc/xtensa-esp32-elf/8.4.0/../../../../xtensa-esp32-elf/include/c++/8.4.0/xtensa-esp32-elf"/>
@@ -10805,8 +10809,8 @@
 					<Add directory="/Users/admin/esp/esp-idf/components/tcpip_adapter/include"/>
 					<Add directory="/Users/admin/esp/esp-idf/components/app_trace/include"/>
 					<Add directory="/Users/admin/Desktop/RTOS/t03/components/mx_function"/>
-					<Add directory="/Users/admin/Desktop/RTOS/t03/components/timer"/>
 					<Add directory="/Users/admin/Desktop/RTOS/t03/components/include"/>
+					<Add directory="/Users/admin/Desktop/RTOS/t03/components/timer"/>
 					<Add directory="/Users/admin/Desktop/RTOS/t03/components/oled"/>
 					<Add directory="/Users/admin/.espressif/tools/xtensa-esp32-elf/esp-2020r3-8.4.0/xtensa-esp32-elf/bin/../lib/gcc/xtensa-esp32-elf/8.4.0/../../../../xtensa-esp32-elf/include/c++/8.4.0"/>
 					<Add directory="/Users/admin/.espressif/tools/xtensa-esp32-elf/esp-2020r3-8.4.0/xtensa-esp32-elf/bin/../lib/gcc/xtensa-esp32-elf/8.4.0/../../../../xtensa-esp32-elf/include/c++/8.4.0/xtensa-esp32-elf"/>
@@ -10860,6 +10864,9 @@
 		<Unit filename="/Users/admin/Desktop/RTOS/t03/components/mx_function/mx_push_front.c">
 			<Option target="__idf_mx_function"/>
 		</Unit>
+		<Unit filename="/Users/admin/Desktop/RTOS/t03/components/mx_function/mx_strnew.c">
+			<Option target="__idf_mx_function"/>
+		</Unit>
 		<Unit filename="/Users/admin/Desktop/RTOS/t03/components/mx_function/mx_strsplit.c">
 			<Option target="__idf_mx_function"/>
 		</Unit>
@@ -10867,6 +10874,9 @@
 			<Option target="__idf_oled"/>
 		</Unit>
 		<Unit filename="/Users/admin/Desktop/RTOS/t03/components/oled/oled.h">
+			<Option target="__idf_oled"/>
+		</Unit>
+		<Unit filename="/Users/admin/Desktop/RTOS/t03/components/oled/task_oled.c">
 			<Option target="__idf_oled"/>
 		</Unit>
 		<Unit filename="/Users/admin/Desktop/RTOS/t03/components/timer/timer.c">

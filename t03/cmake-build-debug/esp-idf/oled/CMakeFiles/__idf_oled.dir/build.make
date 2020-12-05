@@ -90,17 +90,32 @@ esp-idf/oled/CMakeFiles/__idf_oled.dir/oled.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/__idf_oled.dir/oled.c.s"
 	cd /Users/admin/Desktop/RTOS/t03/cmake-build-debug/esp-idf/oled && /Users/admin/.espressif/tools/xtensa-esp32-elf/esp-2020r3-8.4.0/xtensa-esp32-elf/bin/xtensa-esp32-elf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/admin/Desktop/RTOS/t03/components/oled/oled.c -o CMakeFiles/__idf_oled.dir/oled.c.s
 
+esp-idf/oled/CMakeFiles/__idf_oled.dir/task_oled.c.obj: esp-idf/oled/CMakeFiles/__idf_oled.dir/flags.make
+esp-idf/oled/CMakeFiles/__idf_oled.dir/task_oled.c.obj: ../components/oled/task_oled.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/admin/Desktop/RTOS/t03/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object esp-idf/oled/CMakeFiles/__idf_oled.dir/task_oled.c.obj"
+	cd /Users/admin/Desktop/RTOS/t03/cmake-build-debug/esp-idf/oled && /Users/admin/.espressif/tools/xtensa-esp32-elf/esp-2020r3-8.4.0/xtensa-esp32-elf/bin/xtensa-esp32-elf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/__idf_oled.dir/task_oled.c.obj   -c /Users/admin/Desktop/RTOS/t03/components/oled/task_oled.c
+
+esp-idf/oled/CMakeFiles/__idf_oled.dir/task_oled.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/__idf_oled.dir/task_oled.c.i"
+	cd /Users/admin/Desktop/RTOS/t03/cmake-build-debug/esp-idf/oled && /Users/admin/.espressif/tools/xtensa-esp32-elf/esp-2020r3-8.4.0/xtensa-esp32-elf/bin/xtensa-esp32-elf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/admin/Desktop/RTOS/t03/components/oled/task_oled.c > CMakeFiles/__idf_oled.dir/task_oled.c.i
+
+esp-idf/oled/CMakeFiles/__idf_oled.dir/task_oled.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/__idf_oled.dir/task_oled.c.s"
+	cd /Users/admin/Desktop/RTOS/t03/cmake-build-debug/esp-idf/oled && /Users/admin/.espressif/tools/xtensa-esp32-elf/esp-2020r3-8.4.0/xtensa-esp32-elf/bin/xtensa-esp32-elf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/admin/Desktop/RTOS/t03/components/oled/task_oled.c -o CMakeFiles/__idf_oled.dir/task_oled.c.s
+
 # Object files for target __idf_oled
 __idf_oled_OBJECTS = \
-"CMakeFiles/__idf_oled.dir/oled.c.obj"
+"CMakeFiles/__idf_oled.dir/oled.c.obj" \
+"CMakeFiles/__idf_oled.dir/task_oled.c.obj"
 
 # External object files for target __idf_oled
 __idf_oled_EXTERNAL_OBJECTS =
 
 esp-idf/oled/liboled.a: esp-idf/oled/CMakeFiles/__idf_oled.dir/oled.c.obj
+esp-idf/oled/liboled.a: esp-idf/oled/CMakeFiles/__idf_oled.dir/task_oled.c.obj
 esp-idf/oled/liboled.a: esp-idf/oled/CMakeFiles/__idf_oled.dir/build.make
 esp-idf/oled/liboled.a: esp-idf/oled/CMakeFiles/__idf_oled.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/admin/Desktop/RTOS/t03/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX static library liboled.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/admin/Desktop/RTOS/t03/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX static library liboled.a"
 	cd /Users/admin/Desktop/RTOS/t03/cmake-build-debug/esp-idf/oled && $(CMAKE_COMMAND) -P CMakeFiles/__idf_oled.dir/cmake_clean_target.cmake
 	cd /Users/admin/Desktop/RTOS/t03/cmake-build-debug/esp-idf/oled && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/__idf_oled.dir/link.txt --verbose=$(VERBOSE)
 

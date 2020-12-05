@@ -1,0 +1,2 @@
+/Users/admin/.espressif/tools/xtensa-esp32-elf/esp-2020r3-8.4.0/xtensa-esp32-elf/bin/xtensa-esp32-elf-ar qc libmake_noise.a  CMakeFiles/__idf_make_noise.dir/make_some_noise.c.obj
+/Users/admin/.espressif/tools/xtensa-esp32-elf/esp-2020r3-8.4.0/xtensa-esp32-elf/bin/xtensa-esp32-elf-ranlib libmake_noise.a

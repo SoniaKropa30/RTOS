@@ -194,6 +194,19 @@ esp-idf/mx_function/CMakeFiles/__idf_mx_function.dir/mx_itoa.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/__idf_mx_function.dir/mx_itoa.c.s"
 	cd /Users/admin/Desktop/RTOS/t03/cmake-build-debug/esp-idf/mx_function && /Users/admin/.espressif/tools/xtensa-esp32-elf/esp-2020r3-8.4.0/xtensa-esp32-elf/bin/xtensa-esp32-elf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/admin/Desktop/RTOS/t03/components/mx_function/mx_itoa.c -o CMakeFiles/__idf_mx_function.dir/mx_itoa.c.s
 
+esp-idf/mx_function/CMakeFiles/__idf_mx_function.dir/mx_strnew.c.obj: esp-idf/mx_function/CMakeFiles/__idf_mx_function.dir/flags.make
+esp-idf/mx_function/CMakeFiles/__idf_mx_function.dir/mx_strnew.c.obj: ../components/mx_function/mx_strnew.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/admin/Desktop/RTOS/t03/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building C object esp-idf/mx_function/CMakeFiles/__idf_mx_function.dir/mx_strnew.c.obj"
+	cd /Users/admin/Desktop/RTOS/t03/cmake-build-debug/esp-idf/mx_function && /Users/admin/.espressif/tools/xtensa-esp32-elf/esp-2020r3-8.4.0/xtensa-esp32-elf/bin/xtensa-esp32-elf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/__idf_mx_function.dir/mx_strnew.c.obj   -c /Users/admin/Desktop/RTOS/t03/components/mx_function/mx_strnew.c
+
+esp-idf/mx_function/CMakeFiles/__idf_mx_function.dir/mx_strnew.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/__idf_mx_function.dir/mx_strnew.c.i"
+	cd /Users/admin/Desktop/RTOS/t03/cmake-build-debug/esp-idf/mx_function && /Users/admin/.espressif/tools/xtensa-esp32-elf/esp-2020r3-8.4.0/xtensa-esp32-elf/bin/xtensa-esp32-elf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/admin/Desktop/RTOS/t03/components/mx_function/mx_strnew.c > CMakeFiles/__idf_mx_function.dir/mx_strnew.c.i
+
+esp-idf/mx_function/CMakeFiles/__idf_mx_function.dir/mx_strnew.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/__idf_mx_function.dir/mx_strnew.c.s"
+	cd /Users/admin/Desktop/RTOS/t03/cmake-build-debug/esp-idf/mx_function && /Users/admin/.espressif/tools/xtensa-esp32-elf/esp-2020r3-8.4.0/xtensa-esp32-elf/bin/xtensa-esp32-elf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/admin/Desktop/RTOS/t03/components/mx_function/mx_strnew.c -o CMakeFiles/__idf_mx_function.dir/mx_strnew.c.s
+
 # Object files for target __idf_mx_function
 __idf_mx_function_OBJECTS = \
 "CMakeFiles/__idf_mx_function.dir/mx_strsplit.c.obj" \
@@ -204,7 +217,8 @@ __idf_mx_function_OBJECTS = \
 "CMakeFiles/__idf_mx_function.dir/mx_push_back.c.obj" \
 "CMakeFiles/__idf_mx_function.dir/mx_push_front.c.obj" \
 "CMakeFiles/__idf_mx_function.dir/mx_arr_size.c.obj" \
-"CMakeFiles/__idf_mx_function.dir/mx_itoa.c.obj"
+"CMakeFiles/__idf_mx_function.dir/mx_itoa.c.obj" \
+"CMakeFiles/__idf_mx_function.dir/mx_strnew.c.obj"
 
 # External object files for target __idf_mx_function
 __idf_mx_function_EXTERNAL_OBJECTS =
@@ -218,9 +232,10 @@ esp-idf/mx_function/libmx_function.a: esp-idf/mx_function/CMakeFiles/__idf_mx_fu
 esp-idf/mx_function/libmx_function.a: esp-idf/mx_function/CMakeFiles/__idf_mx_function.dir/mx_push_front.c.obj
 esp-idf/mx_function/libmx_function.a: esp-idf/mx_function/CMakeFiles/__idf_mx_function.dir/mx_arr_size.c.obj
 esp-idf/mx_function/libmx_function.a: esp-idf/mx_function/CMakeFiles/__idf_mx_function.dir/mx_itoa.c.obj
+esp-idf/mx_function/libmx_function.a: esp-idf/mx_function/CMakeFiles/__idf_mx_function.dir/mx_strnew.c.obj
 esp-idf/mx_function/libmx_function.a: esp-idf/mx_function/CMakeFiles/__idf_mx_function.dir/build.make
 esp-idf/mx_function/libmx_function.a: esp-idf/mx_function/CMakeFiles/__idf_mx_function.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/admin/Desktop/RTOS/t03/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX static library libmx_function.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/admin/Desktop/RTOS/t03/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX static library libmx_function.a"
 	cd /Users/admin/Desktop/RTOS/t03/cmake-build-debug/esp-idf/mx_function && $(CMAKE_COMMAND) -P CMakeFiles/__idf_mx_function.dir/cmake_clean_target.cmake
 	cd /Users/admin/Desktop/RTOS/t03/cmake-build-debug/esp-idf/mx_function && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/__idf_mx_function.dir/link.txt --verbose=$(VERBOSE)
 

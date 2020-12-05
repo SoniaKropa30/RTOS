@@ -2,11 +2,12 @@
 
 QueueHandle_t uart_queue;
 
-void init_console_data(t_app *app) {
+void init_main_struct_data(t_app *app) {
     app->stack = NULL;
     app->buf = malloc(BUF_SIZE);
     app->str_for_execute = malloc(SIZE_STR_FOR_EXECUTE);
     memset(app->str_for_execute, 0, SIZE_STR_FOR_EXECUTE);
+    memset(app->temp_hum, 0, sizeof(app->temp_hum));
     app->iterator = 0;
     app->len = 0;
 }
@@ -35,17 +36,29 @@ int send_for_execute(t_app *app) {
 
     if (argc) {
         if (!strcmp("log", argv[0]) && !argv[1]) {
-//            printf("in hendler %d\n", app->stack->data.temp);
-//            printf("it is ok\n");
             print_tem_hum_time(app);
+        }
+        else if (!strcmp("led", argv[0] ) && argv[1]) {
+            exit_status = leds_module( argc, argv );
+        }
+        else if(!strcmp("set_time", argv[0])) {
+            exit_status = set_time(argv);
+        }
+        else if(!strcmp("set_alarm", argv[0])) {
+            exit_status = set_alarm(argv, app);
+        }
+        else if(!strcmp("stop_alarm", argv[0])) {
+            exit_status = stop_alarm(argv);
+        }
+        else if(!strcmp("sound", argv[0]) && argv[1] && !argv[2]) {
+            exit_status = make_some_noise(argv[1]);
         }
         else if(!strcmp("clear", argv[0]) && !argv[1]) {
             uart_write_bytes(UART_NUM_1, "\e[2J",sizeof("\e[2J"));
             uart_write_bytes(UART_NUM_1, "\e[0;0f",sizeof("\e[0;0f"));
         }
         else {
-            uart_write_bytes( UART_NUM_1, ERR_COMM_NOT_FOUND,
-                              sizeof(ERR_COMM_NOT_FOUND));
+            uart_write_bytes( UART_NUM_1, ERR_COMM_NOT_FOUND,sizeof(ERR_COMM_NOT_FOUND));
             exit_status = EXIT_FAILURE;
         }
     }

@@ -180,6 +180,7 @@ void simple_simbols_handler(t_app *app, t_list *history) {
         handling_ARROWS(app, history);
     else {
         uart_write_bytes(UART_NUM_1, &app->str_for_execute[app->iterator],
+                         strlen(app->str_for_execute) - app->iterator);uart_write_bytes(UART_NUM_1, &app->str_for_execute[app->iterator],
                          strlen(app->str_for_execute) - app->iterator);
         app->iterator = strlen(app->str_for_execute);
     }

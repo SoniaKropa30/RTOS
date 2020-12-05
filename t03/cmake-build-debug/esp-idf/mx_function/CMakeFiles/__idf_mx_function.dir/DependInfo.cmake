@@ -12,6 +12,7 @@ set(CMAKE_DEPENDS_CHECK_C
   "/Users/admin/Desktop/RTOS/t03/components/mx_function/mx_pop_front.c" "/Users/admin/Desktop/RTOS/t03/cmake-build-debug/esp-idf/mx_function/CMakeFiles/__idf_mx_function.dir/mx_pop_front.c.obj"
   "/Users/admin/Desktop/RTOS/t03/components/mx_function/mx_push_back.c" "/Users/admin/Desktop/RTOS/t03/cmake-build-debug/esp-idf/mx_function/CMakeFiles/__idf_mx_function.dir/mx_push_back.c.obj"
   "/Users/admin/Desktop/RTOS/t03/components/mx_function/mx_push_front.c" "/Users/admin/Desktop/RTOS/t03/cmake-build-debug/esp-idf/mx_function/CMakeFiles/__idf_mx_function.dir/mx_push_front.c.obj"
+  "/Users/admin/Desktop/RTOS/t03/components/mx_function/mx_strnew.c" "/Users/admin/Desktop/RTOS/t03/cmake-build-debug/esp-idf/mx_function/CMakeFiles/__idf_mx_function.dir/mx_strnew.c.obj"
   "/Users/admin/Desktop/RTOS/t03/components/mx_function/mx_strsplit.c" "/Users/admin/Desktop/RTOS/t03/cmake-build-debug/esp-idf/mx_function/CMakeFiles/__idf_mx_function.dir/mx_strsplit.c.obj"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
@@ -61,6 +62,7 @@ set(CMAKE_C_TARGET_INCLUDE_PATH
   "/Users/admin/esp/esp-idf/components/esp_eth/include"
   "/Users/admin/esp/esp-idf/components/tcpip_adapter/include"
   "/Users/admin/esp/esp-idf/components/app_trace/include"
+  "../components/include"
   )
 
 # Targets to which this target links.

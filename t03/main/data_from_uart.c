@@ -35,9 +35,13 @@ int send_for_execute(t_app *app) {
 
     if (argc) {
         if (!strcmp("clock", argv[0]) && !argv[1]) {
-//            printf("in hendler %d\n", app->stack->data.temp);
-            printf("it is ok\n");
-//            print_tem_hum_time(app);
+            xTaskCreate(&timer_task, "timer_task", 4096,
+                        app, 3, &app->clock);
+            xTaskCreate(data_to_oled, "data_to_oled", 4096,
+                        app, 4, NULL);
+        }
+        else if(!strcmp("set_time", argv[0])) {
+           exit_status = set_time(argv);
         }
         else if(!strcmp("clear", argv[0]) && !argv[1]) {
             uart_write_bytes(UART_NUM_1, "\e[2J",sizeof("\e[2J"));

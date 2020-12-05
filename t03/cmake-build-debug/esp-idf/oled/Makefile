@@ -218,6 +218,33 @@ oled.c.s:
 	cd /Users/admin/Desktop/RTOS/t03/cmake-build-debug && $(MAKE) $(MAKESILENT) -f esp-idf/oled/CMakeFiles/__idf_oled.dir/build.make esp-idf/oled/CMakeFiles/__idf_oled.dir/oled.c.s
 .PHONY : oled.c.s
 
+task_oled.obj: task_oled.c.obj
+
+.PHONY : task_oled.obj
+
+# target to build an object file
+task_oled.c.obj:
+	cd /Users/admin/Desktop/RTOS/t03/cmake-build-debug && $(MAKE) $(MAKESILENT) -f esp-idf/oled/CMakeFiles/__idf_oled.dir/build.make esp-idf/oled/CMakeFiles/__idf_oled.dir/task_oled.c.obj
+.PHONY : task_oled.c.obj
+
+task_oled.i: task_oled.c.i
+
+.PHONY : task_oled.i
+
+# target to preprocess a source file
+task_oled.c.i:
+	cd /Users/admin/Desktop/RTOS/t03/cmake-build-debug && $(MAKE) $(MAKESILENT) -f esp-idf/oled/CMakeFiles/__idf_oled.dir/build.make esp-idf/oled/CMakeFiles/__idf_oled.dir/task_oled.c.i
+.PHONY : task_oled.c.i
+
+task_oled.s: task_oled.c.s
+
+.PHONY : task_oled.s
+
+# target to generate assembly for a file
+task_oled.c.s:
+	cd /Users/admin/Desktop/RTOS/t03/cmake-build-debug && $(MAKE) $(MAKESILENT) -f esp-idf/oled/CMakeFiles/__idf_oled.dir/build.make esp-idf/oled/CMakeFiles/__idf_oled.dir/task_oled.c.s
+.PHONY : task_oled.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -234,6 +261,9 @@ help:
 	@echo "... oled.obj"
 	@echo "... oled.i"
 	@echo "... oled.s"
+	@echo "... task_oled.obj"
+	@echo "... task_oled.i"
+	@echo "... task_oled.s"
 .PHONY : help
 
 

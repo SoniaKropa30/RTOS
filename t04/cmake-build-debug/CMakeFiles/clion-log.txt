@@ -1,0 +1,37 @@
+/private/var/folders/mf/28hr4l3s3xg27ywb75gm28fm0000gn/T/AppTranslocation/1D845B14-2E56-4F8C-9DBC-F1C575DCE8A4/d/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DPYTHON=/Users/admin/.espressif/python_env/idf4.3_py2.7_env/bin/python -G "CodeBlocks - Unix Makefiles" /Users/admin/Desktop/RTOS/t04
+-- Building ESP-IDF components for target esp32
+-- Checking Python dependencies...
+Python requirements from /Users/admin/esp/esp-idf/requirements.txt are satisfied.
+-- Project sdkconfig file /Users/admin/Desktop/RTOS/t04/sdkconfig
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LC_ALL = "",
+	LC_CTYPE = "ru_UA.UTF-8",
+	LC_MESSAGES = "",
+	LANG = ""
+    are supported and installed on your system.
+perl: warning: Falling back to the standard locale ("C").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LC_ALL = "",
+	LC_CTYPE = "ru_UA.UTF-8",
+	LC_MESSAGES = "",
+	LANG = ""
+    are supported and installed on your system.
+perl: warning: Falling back to the standard locale ("C").
+-- App "noise" version: 2be6c60-dirty
+-- Adding linker script /Users/admin/esp/esp-idf/components/esp_rom/esp32/ld/esp32.rom.newlib-time.ld
+-- Adding linker script /Users/admin/esp/esp-idf/components/esp_rom/esp32/ld/esp32.rom.api.ld
+-- Adding linker script /Users/admin/esp/esp-idf/components/esp_rom/esp32/ld/esp32.rom.ld
+-- Adding linker script /Users/admin/esp/esp-idf/components/esp_rom/esp32/ld/esp32.rom.libgcc.ld
+-- Adding linker script /Users/admin/esp/esp-idf/components/esp_rom/esp32/ld/esp32.rom.newlib-data.ld
+-- Adding linker script /Users/admin/esp/esp-idf/components/esp_rom/esp32/ld/esp32.rom.syscalls.ld
+-- Adding linker script /Users/admin/esp/esp-idf/components/esp_rom/esp32/ld/esp32.rom.newlib-funcs.ld
+-- Adding linker script /Users/admin/Desktop/RTOS/t04/cmake-build-debug/esp-idf/esp32/esp32_out.ld
+-- Adding linker script /Users/admin/esp/esp-idf/components/esp32/ld/esp32.project.ld.in
+-- Adding linker script /Users/admin/esp/esp-idf/components/esp32/ld/esp32.peripherals.ld
+-- Components: app_trace app_update asio bootloader bootloader_support bt cbor cmock coap console cxx driver efuse esp-tls esp32 esp_adc_cal esp_common esp_eth esp_event esp_gdbstub esp_hid esp_http_client esp_http_server esp_https_ota esp_https_server esp_hw_support esp_ipc esp_local_ctrl esp_netif esp_pm esp_ringbuf esp_rom esp_serial_slave_link esp_system esp_timer esp_websocket_client esp_wifi espcoredump esptool_py expat fatfs freemodbus freertos hal heap idf_test include jsmn json libsodium log lwip main make_noise mbedtls mdns mqtt mx_function newlib nghttp nvs_flash oled openssl partition_table perfmon protobuf-c protocomm pthread sdmmc soc spi_flash spiffs tcp_transport tcpip_adapter timer tinyusb ulp unity vfs wear_levelling wifi_provisioning wpa_supplicant xtensa
+-- Component paths: /Users/admin/esp/esp-idf/components/app_trace /Users/admin/esp/esp-idf/components/app_update /Users/admin/esp/esp-idf/components/asio /Users/admin/esp/esp-idf/components/bootloader /Users/admin/esp/esp-idf/components/bootloader_support /Users/admin/esp/esp-idf/components/bt /Users/admin/esp/esp-idf/components/cbor /Users/admin/esp/esp-idf/components/cmock /Users/admin/esp/esp-idf/components/coap /Users/admin/esp/esp-idf/components/console /Users/admin/esp/esp-idf/components/cxx /Users/admin/esp/esp-idf/components/driver /Users/admin/esp/esp-idf/components/efuse /Users/admin/esp/esp-idf/components/esp-tls /Users/admin/esp/esp-idf/components/esp32 /Users/admin/esp/esp-idf/components/esp_adc_cal /Users/admin/esp/esp-idf/components/esp_common /Users/admin/esp/esp-idf/components/esp_eth /Users/admin/esp/esp-idf/components/esp_event /Users/admin/esp/esp-idf/components/esp_gdbstub /Users/admin/esp/esp-idf/components/esp_hid /Users/admin/esp/esp-idf/components/esp_http_client /Users/admin/esp/esp-idf/components/esp_http_server /Users/admin/esp/esp-idf/components/esp_https_ota /Users/admin/esp/esp-idf/components/esp_https_server /Users/admin/esp/esp-idf/components/esp_hw_support /Users/admin/esp/esp-idf/components/esp_ipc /Users/admin/esp/esp-idf/components/esp_local_ctrl /Users/admin/esp/esp-idf/components/esp_netif /Users/admin/esp/esp-idf/components/esp_pm /Users/admin/esp/esp-idf/components/esp_ringbuf /Users/admin/esp/esp-idf/components/esp_rom /Users/admin/esp/esp-idf/components/esp_serial_slave_link /Users/admin/esp/esp-idf/components/esp_system /Users/admin/esp/esp-idf/components/esp_timer /Users/admin/esp/esp-idf/components/esp_websocket_client /Users/admin/esp/esp-idf/components/esp_wifi /Users/admin/esp/esp-idf/components/espcoredump /Users/admin/esp/esp-idf/components/esptool_py /Users/admin/esp/esp-idf/components/expat /Users/admin/esp/esp-idf/components/fatfs /Users/admin/esp/esp-idf/components/freemodbus /Users/admin/esp/esp-idf/components/freertos /Users/admin/esp/esp-idf/components/hal /Users/admin/esp/esp-idf/components/heap /Users/admin/esp/esp-idf/components/idf_test /Users/admin/Desktop/RTOS/t04/components/include /Users/admin/esp/esp-idf/components/jsmn /Users/admin/esp/esp-idf/components/json /Users/admin/esp/esp-idf/components/libsodium /Users/admin/esp/esp-idf/components/log /Users/admin/esp/esp-idf/components/lwip /Users/admin/Desktop/RTOS/t04/main /Users/admin/Desktop/RTOS/t04/components/make_noise /Users/admin/esp/esp-idf/components/mbedtls /Users/admin/esp/esp-idf/components/mdns /Users/admin/esp/esp-idf/components/mqtt /Users/admin/Desktop/RTOS/t04/components/mx_function /Users/admin/esp/esp-idf/components/newlib /Users/admin/esp/esp-idf/components/nghttp /Users/admin/esp/esp-idf/components/nvs_flash /Users/admin/Desktop/RTOS/t04/components/oled /Users/admin/esp/esp-idf/components/openssl /Users/admin/esp/esp-idf/components/partition_table /Users/admin/esp/esp-idf/components/perfmon /Users/admin/esp/esp-idf/components/protobuf-c /Users/admin/esp/esp-idf/components/protocomm /Users/admin/esp/esp-idf/components/pthread /Users/admin/esp/esp-idf/components/sdmmc /Users/admin/esp/esp-idf/components/soc /Users/admin/esp/esp-idf/components/spi_flash /Users/admin/esp/esp-idf/components/spiffs /Users/admin/esp/esp-idf/components/tcp_transport /Users/admin/esp/esp-idf/components/tcpip_adapter /Users/admin/Desktop/RTOS/t04/components/timer /Users/admin/esp/esp-idf/components/tinyusb /Users/admin/esp/esp-idf/components/ulp /Users/admin/esp/esp-idf/components/unity /Users/admin/esp/esp-idf/components/vfs /Users/admin/esp/esp-idf/components/wear_levelling /Users/admin/esp/esp-idf/components/wifi_provisioning /Users/admin/esp/esp-idf/components/wpa_supplicant /Users/admin/esp/esp-idf/components/xtensa
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /Users/admin/Desktop/RTOS/t04/cmake-build-debug

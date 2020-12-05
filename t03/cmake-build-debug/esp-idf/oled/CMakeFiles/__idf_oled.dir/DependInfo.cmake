@@ -5,6 +5,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
   "/Users/admin/Desktop/RTOS/t03/components/oled/oled.c" "/Users/admin/Desktop/RTOS/t03/cmake-build-debug/esp-idf/oled/CMakeFiles/__idf_oled.dir/oled.c.obj"
+  "/Users/admin/Desktop/RTOS/t03/components/oled/task_oled.c" "/Users/admin/Desktop/RTOS/t03/cmake-build-debug/esp-idf/oled/CMakeFiles/__idf_oled.dir/task_oled.c.obj"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 
@@ -53,6 +54,7 @@ set(CMAKE_C_TARGET_INCLUDE_PATH
   "/Users/admin/esp/esp-idf/components/esp_eth/include"
   "/Users/admin/esp/esp-idf/components/tcpip_adapter/include"
   "/Users/admin/esp/esp-idf/components/app_trace/include"
+  "../components/include"
   )
 
 # Targets to which this target links.

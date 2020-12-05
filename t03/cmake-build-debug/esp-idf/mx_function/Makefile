@@ -407,6 +407,33 @@ mx_push_front.c.s:
 	cd /Users/admin/Desktop/RTOS/t03/cmake-build-debug && $(MAKE) $(MAKESILENT) -f esp-idf/mx_function/CMakeFiles/__idf_mx_function.dir/build.make esp-idf/mx_function/CMakeFiles/__idf_mx_function.dir/mx_push_front.c.s
 .PHONY : mx_push_front.c.s
 
+mx_strnew.obj: mx_strnew.c.obj
+
+.PHONY : mx_strnew.obj
+
+# target to build an object file
+mx_strnew.c.obj:
+	cd /Users/admin/Desktop/RTOS/t03/cmake-build-debug && $(MAKE) $(MAKESILENT) -f esp-idf/mx_function/CMakeFiles/__idf_mx_function.dir/build.make esp-idf/mx_function/CMakeFiles/__idf_mx_function.dir/mx_strnew.c.obj
+.PHONY : mx_strnew.c.obj
+
+mx_strnew.i: mx_strnew.c.i
+
+.PHONY : mx_strnew.i
+
+# target to preprocess a source file
+mx_strnew.c.i:
+	cd /Users/admin/Desktop/RTOS/t03/cmake-build-debug && $(MAKE) $(MAKESILENT) -f esp-idf/mx_function/CMakeFiles/__idf_mx_function.dir/build.make esp-idf/mx_function/CMakeFiles/__idf_mx_function.dir/mx_strnew.c.i
+.PHONY : mx_strnew.c.i
+
+mx_strnew.s: mx_strnew.c.s
+
+.PHONY : mx_strnew.s
+
+# target to generate assembly for a file
+mx_strnew.c.s:
+	cd /Users/admin/Desktop/RTOS/t03/cmake-build-debug && $(MAKE) $(MAKESILENT) -f esp-idf/mx_function/CMakeFiles/__idf_mx_function.dir/build.make esp-idf/mx_function/CMakeFiles/__idf_mx_function.dir/mx_strnew.c.s
+.PHONY : mx_strnew.c.s
+
 mx_strsplit.obj: mx_strsplit.c.obj
 
 .PHONY : mx_strsplit.obj
@@ -471,6 +498,9 @@ help:
 	@echo "... mx_push_front.obj"
 	@echo "... mx_push_front.i"
 	@echo "... mx_push_front.s"
+	@echo "... mx_strnew.obj"
+	@echo "... mx_strnew.i"
+	@echo "... mx_strnew.s"
 	@echo "... mx_strsplit.obj"
 	@echo "... mx_strsplit.i"
 	@echo "... mx_strsplit.s"
