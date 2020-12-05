@@ -57,24 +57,9 @@ int send_for_execute(char *str_for_execute) {
 void handling_ENTER(t_app *app, t_list *history) {
     uart_write_bytes( UART_NUM_1, "\n\r", sizeof( "\n" ));
     send_for_execute(app->str_for_execute);
-//    if (send_for_execute(app->str_for_execute ) == EXIT_SUCCESS) {
-//        mx_push_back(&history, strdup(app->str_for_execute));
-//        t_list *ptr = history;
-//        for (int i = 1; i < mx_list_size(history); i++) {
-//            if (ptr->data == NULL && i == 1) {
-//                ptr = ptr->next;
-//            }
-//            printf( "history: %s\n", (char *) ptr->data );
-//            ptr = ptr->next;
-//        }
-//    }
     app->iterator = 0;
     app->history_iterator = 0;
-//    printf("\n\nstr =  %s\n", app->str_for_execute);
     memset( app->str_for_execute, 0, SIZE_STR_FOR_EXECUTE );
-//    printf("str for execute =*%s*\n", app->str_for_execute);
-//    printf("iter = %d\n", app->iterator);
-//    printf("app->buf =  %s\n", (char *)app->buf);
 }
 
 void handling_DELETE(t_app *app) {
@@ -85,8 +70,6 @@ void handling_DELETE(t_app *app) {
         app->str_for_execute[strlen(app->str_for_execute) - 1] = '\0';
         (app->iterator > 0) ? app->iterator-- : 0;
     }
-    printf("str for execute =*%s*\n", app->str_for_execute);
-
 }
 
 _Bool printable_char(char *buf) {
@@ -106,12 +89,8 @@ _Bool is_buffer_enought(t_app *app) {
     if (strlen((char *) app->buf ) + strlen( app->str_for_execute ) < SIZE_STR_FOR_EXECUTE) {
         if (printable_char((char *) app->buf )) {
             strcat( app->str_for_execute, (char *) app->buf );
-            printf( "strlen  = %d\n", strlen( app->str_for_execute ));
-            printf( "str for execute =*%s*\n", app->str_for_execute );
         }
         return 1;
-
-
     }
     return 0;
 }
@@ -134,32 +113,33 @@ void handling_ARROWS(t_app *app, t_list *history) {
                 app->iterator--;
                 uart_write_bytes( UART_NUM_1, "\b", 1 );
             }
-            printf("after incremantation = %d\n", app->iterator);
         }
-//        if(app->buf[2] == 65) {
-//            printf("in tens\n\n");
-//
-//            t_list *ptr = history;
-//            for (int i = 0; i < mx_list_size(history) - 1; i++) {
-//                if (ptr->data == NULL && i == 0) {
-//                    ptr = ptr->next;
-//                }
-//                if(i == app->history_iterator) {
-//                    printf("afret arr: %s\n", (char *) ptr->data);
-//                    if(!strlen(app->str_for_execute)) {
-////                        free(app->str_for_execute);
-//                        app->str_for_execute = strdup(ptr->data);
-//                        app->iterator = strlen(app->str_for_execute);
-//                        uart_write_bytes(UART_NUM_1,app->str_for_execute,
-//                                                 strlen(app->str_for_execute));
-//                    }
-//                }
-//                ptr = ptr->next;
-//
-//            }
-//            free(ptr);
-//            app->history_iterator++;
-//        }
+        /* HISTORY  it will be done;)
+        if(app->buf[2] == 65) {
+            printf("in tens\n\n");
+
+            t_list *ptr = history;
+            for (int i = 0; i < mx_list_size(history) - 1; i++) {
+                if (ptr->data == NULL && i == 0) {
+                    ptr = ptr->next;
+                }
+                if(i == app->history_iterator) {
+                    printf("afret arr: %s\n", (char *) ptr->data);
+                    if(!strlen(app->str_for_execute)) {
+                        free(app->str_for_execute);
+                        app->str_for_execute = strdup(ptr->data);
+                        app->iterator = strlen(app->str_for_execute);
+                        uart_write_bytes(UART_NUM_1,app->str_for_execute,
+                                                 strlen(app->str_for_execute));
+                    }
+                }
+                ptr = ptr->next;
+
+            }
+            free(ptr);
+            app->history_iterator++;
+        }
+        */
     }
 }
 

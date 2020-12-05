@@ -34,17 +34,17 @@ char *check_arg(int argc, char **argv, int max_param_num,
 }
 
 void delete_running_tasks(int led_num) {
-    if(led_num == 1 && led_pulse_1 != NULL) {
+    if (led_num == 1 && led_pulse_1 != NULL) {
         printf("deleted task\n");
         vTaskDelete(led_pulse_1);
         led_pulse_1 = NULL;
     }
-    else if(led_num == 2 && led_pulse_2 != NULL) {
+    else if (led_num == 2 && led_pulse_2 != NULL) {
         printf("deleted task\n");
         vTaskDelete(led_pulse_2);
         led_pulse_2 = NULL;
     }
-    else if(led_num == 3 && led_pulse_3 != NULL) {
+    else if (led_num == 3 && led_pulse_3 != NULL) {
         printf("deleted task\n");
         vTaskDelete(led_pulse_3);
         led_pulse_3 = NULL;
@@ -72,7 +72,7 @@ int led_on_off(int mode, float param[]) {
 
 void led_pulse_task (void *data) {
     float *param = (float *)data;
-    if(!param) return;
+    if (!param) return;
     int gpio_num = ((gpio_num = param[0]) == 1) ? 27 : (gpio_num == 2) ? 26 : 33;
     int delay = param[1] * 130;
 
@@ -110,10 +110,10 @@ int check_led_pulse(int argc, char **argv, float param[]) {
 int led_pulse(int argc, char **argv, float *param) {
     if(check_led_pulse(argc, argv, param) != -1) {
         delete_running_tasks((int)param[0]);
-        if(param[0] == 1)
+        if (param[0] == 1)
             xTaskCreate(led_pulse_task, "led_pulse_task", 2048,
                     param,5, &led_pulse_1);
-        else if(param[0] == 2)
+        else if (param[0] == 2)
             xTaskCreate(led_pulse_task, "led_pulse_task", 2048,
                     param,5, &led_pulse_2);
         else
