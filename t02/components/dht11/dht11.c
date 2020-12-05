@@ -33,9 +33,9 @@ void sensor_activation(void) {
     ESP_ERROR_CHECK(gpio_set_level(GPIO_DATA, 1));
     ets_delay_us(30);
     ESP_ERROR_CHECK(gpio_set_direction(GPIO_DATA, GPIO_MODE_INPUT)); // todo was checked
-    if((read_data(80, 0)) == -1)
+    if ((read_data(80, 0)) == -1)
         read_data_error("level_1","0");
-    if((read_data(80, 1)) == -1)
+    if ((read_data(80, 1)) == -1)
         read_data_error("level_2","1");
 }
 
@@ -62,7 +62,7 @@ int take_data_from_dht11(int *temp, int *hum) {
             bin_nbr[i / 8] += 1;
         i++;
     }
-    if(check_sum(bin_nbr) == -1) {
+    if (check_sum(bin_nbr) == -1) {
         return -1;
     }
     else {

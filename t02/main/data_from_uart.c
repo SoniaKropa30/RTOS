@@ -22,8 +22,7 @@ void uart_config(void) {
             };
     ESP_ERROR_CHECK( uart_param_config( UART_NUM_1, &uart_config ));
     ESP_ERROR_CHECK( uart_set_pin( UART_NUM_1, UART_TX_PIN, UART_RX_PIN, UART_PIN_NO_CHANGE, UART_PIN_NO_CHANGE ));
-    ESP_ERROR_CHECK( uart_driver_install( UART_NUM_1, 1024,
-                                          1024, 10, &uart_queue, 0 ));
+    ESP_ERROR_CHECK( uart_driver_install( UART_NUM_1, 1024, 1024, 10, &uart_queue, 0 ));
     uart_pattern_queue_reset( UART_NUM_1, 20 );
 }
 
@@ -35,8 +34,6 @@ int send_for_execute(t_app *app) {
 
     if (argc) {
         if (!strcmp("log", argv[0]) && !argv[1]) {
-//            printf("in hendler %d\n", app->stack->data.temp);
-//            printf("it is ok\n");
             print_tem_hum_time(app);
         }
         else if(!strcmp("clear", argv[0]) && !argv[1]) {
@@ -44,8 +41,7 @@ int send_for_execute(t_app *app) {
             uart_write_bytes(UART_NUM_1, "\e[0;0f",sizeof("\e[0;0f"));
         }
         else {
-            uart_write_bytes( UART_NUM_1, ERR_COMM_NOT_FOUND,
-                              sizeof(ERR_COMM_NOT_FOUND));
+            uart_write_bytes( UART_NUM_1, ERR_COMM_NOT_FOUND, sizeof(ERR_COMM_NOT_FOUND));
             exit_status = EXIT_FAILURE;
         }
     }
@@ -60,24 +56,9 @@ int send_for_execute(t_app *app) {
 void handling_ENTER(t_app *app, t_list *history) {
     uart_write_bytes( UART_NUM_1, "\n\r", sizeof( "\n" ));
     send_for_execute(app);
-//    if (send_for_execute(app->str_for_execute ) == EXIT_SUCCESS) {
-//        mx_push_back(&history, strdup(app->str_for_execute));
-//        t_list *ptr = history;
-//        for (int i = 1; i < mx_list_size(history); i++) {
-//            if (ptr->data == NULL && i == 1) {
-//                ptr = ptr->next;
-//            }
-//            printf( "history: %s\n", (char *) ptr->data );
-//            ptr = ptr->next;
-//        }
-//    }
     app->iterator = 0;
     app->history_iterator = 0;
-//    printf("\n\nstr =  %s\n", app->str_for_execute);
     memset( app->str_for_execute, 0, SIZE_STR_FOR_EXECUTE );
-//    printf("str for execute =*%s*\n", app->str_for_execute);
-//    printf("iter = %d\n", app->iterator);
-//    printf("app->buf =  %s\n", (char *)app->buf);
 }
 
 void handling_DELETE(t_app *app) {
@@ -88,8 +69,6 @@ void handling_DELETE(t_app *app) {
         app->str_for_execute[strlen(app->str_for_execute) - 1] = '\0';
         (app->iterator > 0) ? app->iterator-- : 0;
     }
-//    printf("str for execute =*%s*\n", app->str_for_execute);
-
 }
 
 _Bool printable_char(char *buf) {
@@ -109,8 +88,6 @@ _Bool is_buffer_enought(t_app *app) {
     if (strlen((char *) app->buf ) + strlen( app->str_for_execute ) < SIZE_STR_FOR_EXECUTE) {
         if (printable_char((char *) app->buf )) {
             strcat( app->str_for_execute, (char *) app->buf );
-//            printf( "strlen  = %d\n", strlen( app->str_for_execute ));
-//            printf( "str for execute =*%s*\n", app->str_for_execute );
         }
         return 1;
 
@@ -135,34 +112,9 @@ void handling_ARROWS(t_app *app, t_list *history) {
                 app->iterator = 0;
             else {
                 app->iterator--;
-                uart_write_bytes( UART_NUM_1, "\b", 1 );
+                uart_write_bytes(UART_NUM_1, "\b", 1);
             }
-//            printf("after incremantation = %d\n", app->iterator);
         }
-//        if(app->buf[2] == 65) {
-//            printf("in tens\n\n");
-//
-//            t_list *ptr = history;
-//            for (int i = 0; i < mx_list_size(history) - 1; i++) {
-//                if (ptr->data == NULL && i == 0) {
-//                    ptr = ptr->next;
-//                }
-//                if(i == app->history_iterator) {
-//                    printf("afret arr: %s\n", (char *) ptr->data);
-//                    if(!strlen(app->str_for_execute)) {
-////                        free(app->str_for_execute);
-//                        app->str_for_execute = strdup(ptr->data);
-//                        app->iterator = strlen(app->str_for_execute);
-//                        uart_write_bytes(UART_NUM_1,app->str_for_execute,
-//                                                 strlen(app->str_for_execute));
-//                    }
-//                }
-//                ptr = ptr->next;
-//
-//            }
-//            free(ptr);
-//            app->history_iterator++;
-//        }
     }
 }
 
